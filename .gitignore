@@ -18,3 +18,7 @@ var/memory.*
 .build/
 pytest_cache/
 .ruff_cache/
+
+# OS build artifacts
+os/debian-live/build/
+os/debian-live/*.iso
