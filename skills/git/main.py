@@ -48,6 +48,13 @@ def branch():
     return _git(["branch", "--show-current"])
 
 
+@endpoint("git.branches")
+def branches():
+    pol = load_policy()
+    _check_cwd(pol)
+    return _git(["branch", "--all", "--verbose", "--color=always"])
+
+
 @endpoint("git.switch")
 def switch(name: str):
     pol = load_policy()
