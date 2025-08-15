@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtualenv
+.venv/
+
+# Logs and runtime files
+var/*.log*
+var/memory.*
+
+# Others
+*.egg-info/
+.dist/
+.build/
+pytest_cache/
+.ruff_cache/

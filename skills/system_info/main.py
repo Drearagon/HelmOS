@@ -1,4 +1,9 @@
-import os, subprocess
+import os
+import platform
+import shutil
+import subprocess
+import sys
+
 from core.skill_api import endpoint
 
 
@@ -13,6 +18,7 @@ def _read_meminfo():
         pass
     return info
 
+
 def _read_uptime():
     try:
         with open("/proc/uptime") as fh:
@@ -20,6 +26,7 @@ def _read_uptime():
             return int(up)
     except Exception:
         return 0
+
 
 @endpoint("system.info.get")
 def get():
@@ -36,10 +43,15 @@ def get():
             gpus.append({"name": name, "memory_total": memory})
     except Exception:
         pass
+    disk = shutil.disk_usage("/")
     return {
+        "os": platform.platform(),
+        "python": sys.version.split()[0],
         "cpu_count": os.cpu_count(),
         "ram_total": mem.get("MemTotal"),
         "ram_available": mem.get("MemAvailable"),
+        "disk_total": disk.total,
+        "disk_free": disk.free,
         "uptime_seconds": uptime,
         "gpus": gpus,
     }
