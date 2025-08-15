@@ -9,4 +9,9 @@ allowed_commands:
   - cat
   - uname
   - date
+denied_commands:
+  - rm
+  - sudo
+  - powershell
 require_approval: false
+prompt_on_write: false

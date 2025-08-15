@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 88
+extend-exclude = "ai/thalamus/bus.py"
+
+[tool.ruff]
+line-length = 88
+extend-exclude = ["ai/thalamus/bus.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

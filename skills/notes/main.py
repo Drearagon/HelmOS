@@ -1,9 +1,15 @@
-from core.skill_api import endpoint
 from ai.hippocampus.memory import append_memory, read_memory
+from core.skill_api import endpoint
+
 NOTES_PREFIX = "[note] "
+
+
 @endpoint("notes.add")
 def add(text: str):
-    append_memory(NOTES_PREFIX + text); return "Added note."
+    append_memory(NOTES_PREFIX + text)
+    return "Added note."
+
+
 @endpoint("notes.list")
 def list_notes():
     data = read_memory()
