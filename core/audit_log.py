@@ -1,7 +1,7 @@
 from datetime import datetime
-from pathlib import Path
+from .paths import var_path
 
-LOG_PATH = Path("var/audit.log")
+LOG_PATH = var_path("audit.log")
 MAX_SIZE = 5 * 1024 * 1024  # 5MB
 
 

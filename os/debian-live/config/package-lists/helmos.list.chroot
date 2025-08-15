@@ -1,0 +1,15 @@
+# base
+systemd-sysv
+sudo
+ca-certificates
+# python
+python3
+python3-venv
+python3-pip
+# cli niceties
+vim
+git
+htop
+less
+# optional firmware (uncomment if needed)
+# firmware-linux
