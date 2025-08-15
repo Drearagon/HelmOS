@@ -1,0 +1,1 @@
+class Bus: ...\nbus=Bus()\n

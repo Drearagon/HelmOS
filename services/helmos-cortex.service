@@ -1,0 +1,1 @@
+[Unit]\nDescription=HelmOS Cortex\n[Service]\nWorkingDirectory=%h/HelmOS\nExecStart=%h/HelmOS/.venv/bin/python -m ai.cortex.main\nRestart=on-failure\n[Install]\nWantedBy=default.target\n

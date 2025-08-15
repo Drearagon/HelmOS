@@ -1,0 +1,1 @@
+[Unit]\nDescription=HelmOS Palette\n[Service]\nWorkingDirectory=%h/HelmOS\nExecStart=%h/HelmOS/.venv/bin/python -m cli.palette\nRestart=on-failure\n[Install]\nWantedBy=default.target\n

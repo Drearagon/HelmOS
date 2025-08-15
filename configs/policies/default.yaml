@@ -1,0 +1,12 @@
+allowed_paths:
+  - /home/$USER/Documents
+  - /home/$USER/Projects
+denied_paths:
+  - /home/$USER/Documents/Secrets
+allowed_commands:
+  - echo
+  - ls
+  - cat
+  - uname
+  - date
+require_approval: false
