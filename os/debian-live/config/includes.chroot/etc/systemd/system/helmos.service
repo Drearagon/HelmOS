@@ -1,0 +1,19 @@
+[Unit]
+Description=HelmOS Palette autostart (TTY)
+After=multi-user.target network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/HelmOS
+Environment=PYTHONUNBUFFERED=1
+# Ensure venv & deps, then run palette
+ExecStart=/bin/bash -lc '. .venv/bin/activate || python3 -m venv .venv && . .venv/bin/activate; pip -q install --upgrade pip; pip -q install -r requirements.txt; python -m cli.palette'
+Restart=on-failure
+User=live
+TTYPath=/dev/tty1
+StandardInput=tty
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+
+build/
+cache/
+chroot/
+config/binary
+config/bootstrap
+config/chroot
+live-image-.iso
+live-image-.hybrid.iso
+work/
+tmp/
+config/includes.chroot/opt/HelmOS/**

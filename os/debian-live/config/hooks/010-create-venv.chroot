@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+# Pre-create runtime directories and a writable data root for HelmOS
+install -d -m 0755 /home/live/.local/share/helmos
+chown -R live:live /home/live/.local/share/helmos
+
+# Move HelmOS logs/memory to a writable place via symlinks if app expects ./var
+# (Safe even if paths don't exist yet)
+mkdir -p /opt/HelmOS/var || true
+rm -f /opt/HelmOS/var/audit.log || true
+ln -sf /home/live/.local/share/helmos/audit.log /opt/HelmOS/var/audit.log
+
+# Create Python venv and install deps now (speeds first boot)
+cd /opt/HelmOS
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt

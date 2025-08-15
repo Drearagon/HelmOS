@@ -1,9 +1,8 @@
-from pathlib import Path
-
 from cryptography.fernet import Fernet
+from core.paths import var_path
 
-KEY_PATH = Path("var/memory.key")
-MEMO_PATH = Path("var/memory.txt.enc")
+KEY_PATH = var_path("memory.key")
+MEMO_PATH = var_path("memory.txt.enc")
 
 
 def ensure_key():
