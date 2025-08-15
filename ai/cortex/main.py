@@ -158,7 +158,9 @@ def handle(text: str) -> str:
         log_error(res.error)
         return f"Error: {res.error}"
     if t.startswith("policy edit"):
-        editor = os.environ.get("EDITOR") or ("code" if shutil.which("code") else "nano")
+        editor = os.environ.get("EDITOR") or (
+            "code" if shutil.which("code") else "nano"
+        )
         cmd = f"{editor} configs/policies/default.yaml"
         try:
             subprocess.run(shlex.split(cmd), check=False)
