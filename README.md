@@ -27,6 +27,10 @@ cd HelmOS
 Delete the HelmOS/ folder.
 ```
 
+## Built-in skills
+- `skills.list` — enumerate registered skill endpoints
+- `sys info` — report OS, CPU, memory, disk, and Python info
+
 ## Build a bootable ISO (Debian live)
 To experiment with HelmOS as a live system, use the scripts under `os/debian-live/`:
 ```
